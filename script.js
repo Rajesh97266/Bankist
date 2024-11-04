@@ -159,3 +159,19 @@ displayMovements(account1.movements);
 // currenciesUnique.forEach(function (value, _, map) {
 //   console.log(`${value} : ${value}`);
 // });
+
+const checkDogs = function (dogsJulia, dogskate) {
+  const dogJuliaCorrected = dogsJulia.slice();
+  dogJuliaCorrected.splice(0, 1);
+  dogJuliaCorrected.splice(-2);
+  const dogs = dogJuliaCorrected.concat(dogskate);
+  console.log(dogs);
+  dogs.forEach(function (dog, i) {
+    let age =
+      dog >= 3
+        ? `Dog Number ${i + 1} is adult and is ${dog} Years old `
+        : `Dog number ${i + 1} is still a puppy `;
+    console.log(age);
+  });
+};
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
