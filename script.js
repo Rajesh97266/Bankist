@@ -71,7 +71,7 @@ const displayMovements = function (movements) {
       i + 1
     } ${type}</div>
           
-          <div class="movements__value">${mov}</div>
+          <div class="movements__value">${mov}€</div>
         </div>
     `;
     containerMovements.insertAdjacentHTML('afterbegin', html);
@@ -95,9 +95,32 @@ console.log(accounts);
 
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} EUR`;
+  labelBalance.textContent = `${balance}€`;
 };
 calcDisplayBalance(account1.movements);
+
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const outgoing = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov);
+  labelSumOut.textContent = `${Math.abs(outgoing)}€`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+calcDisplaySummary(account1.movements);
 // const userName = user
 //   .toLocaleLowerCase()
 //   .split(' ')
@@ -201,15 +224,13 @@ calcDisplayBalance(account1.movements);
 // };
 // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 // const euroToUsd = 1.1;
 
 // const movementsUSD = movements.map(mov => mov * euroToUsd);
 
 // console.log(movementsUSD);
 
-// const movementsUSDFor = [];
+// const movementsUSDFor = [];]
 // for (const mov of movements) {
 //   movementsUSDFor.push(mov * euroToUsd);
 // }
