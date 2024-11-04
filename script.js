@@ -250,3 +250,31 @@ calcDisplayBalance(account1.movements);
 //   balance2 += mov;
 // }
 // console.log(balance2);
+
+// const checkDogs = function (dogsJulia, dogskate) {
+//   const dogJuliaCorrected = dogsJulia.slice();
+//   dogJuliaCorrected.splice(0, 1);
+//   dogJuliaCorrected.splice(-2);
+//   const dogs = dogJuliaCorrected.concat(dogskate);
+//   console.log(dogs);
+//   dogs.forEach(function (dog, i) {
+//     let age =
+//       dog >= 3
+//         ? `Dog Number ${i + 1} is adult and is ${dog} Years old `
+//         : `Dog number ${i + 1} is still a puppy `;
+//     console.log(age);
+//   });
+// };
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+// let calcAverageHumanAge = function (ages) {
+//   const humanAges = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+//   const adults = humanAges.filter(age => age >= 18);
+//   console.log(humanAges);
+//   console.log(adults);
+//   const average = adults.reduce((acc, age) => acc + age, 0) / adults.length;
+//   console.log(average);
+//   return average;
+// };
+
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
