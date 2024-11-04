@@ -93,6 +93,11 @@ const createUserNames = function (accs) {
 createUserNames(accounts);
 console.log(accounts);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
 // const userName = user
 //   .toLocaleLowerCase()
 //   .split(' ')
@@ -196,38 +201,52 @@ console.log(accounts);
 // };
 // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const euroToUsd = 1.1;
+// const euroToUsd = 1.1;
 
-const movementsUSD = movements.map(mov => mov * euroToUsd);
+// const movementsUSD = movements.map(mov => mov * euroToUsd);
 
-console.log(movementsUSD);
+// console.log(movementsUSD);
 
-const movementsUSDFor = [];
-for (const mov of movements) {
-  movementsUSDFor.push(mov * euroToUsd);
-}
+// const movementsUSDFor = [];
+// for (const mov of movements) {
+//   movementsUSDFor.push(mov * euroToUsd);
+// }
 
-console.log(movementsUSDFor);
+// console.log(movementsUSDFor);
 
-const movementsDescription = movements.map((movement, i) => {
-  if (movement > 0) {
-    return `Movement ${i + 1}: You deposited ${movement}`;
-  } else {
-    return `Movement ${i + 1}: You withdrew ${Math.abs(movement)}`;
-  }
-});
+// const movementsDescription = movements.map((movement, i) => {
+//   if (movement > 0) {
+//     return `Movement ${i + 1}: You deposited ${movement}`;
+//   } else {
+//     return `Movement ${i + 1}: You withdrew ${Math.abs(movement)}`;
+//   }
+// });
 
-console.log(movementsDescription);
+// console.log(movementsDescription);
 
-const deposits = movements.filter(function (mov) {
-  return mov > 0;
-});
+// const deposits = movements.filter(function (mov) {
+//   return mov > 0;
+// });
 
-console.log(movements);
-console.log(deposits);
+// console.log(movements);
+// console.log(deposits);
 
-const withdrawls = movements.filter(mov => mov < 0);
+// const withdrawls = movements.filter(mov => mov < 0);
 
-console.log(withdrawls);
+// console.log(withdrawls);
+
+// //accumulator is like a snow ball
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Iteration ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0);
+
+// console.log(balance);
+
+// let balance2 = 0;
+// for (const mov of movements) {
+//   balance2 += mov;
+// }
+// console.log(balance2);
